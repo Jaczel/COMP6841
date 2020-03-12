@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 Create a coincidence index of the characters and compute
 the likelihood that the text is random.
@@ -86,7 +87,10 @@ if __name__ == "__main__":
              'AHUCH DTZTM XAHDF HUZAH LHFHF QUMXZ'\
              'ZTVZH MUXMU NNXCR TWUZA TFVHR HCUCX'
 
-    RANDOM_INDEX_OF_COINCIDENCE = 0.0385
+    # Note: This is slightly higher than the general
+    RANDOM_INDEX_OF_COINCIDENCE = 0.04
+    # RANDOM_INDEX_OF_COINCIDENCE = 0.0385
+
 
     inp = input("Press 1 for Wax On, 2 for Wax-Off or your own string: ")
     if int(inp) == 1:
@@ -102,6 +106,7 @@ if __name__ == "__main__":
     make_bar_chart(characters)
     ci = compute_coincidence_index(characters)
     print("Coincidence Index of", ci)
+    print("Random Index of Coincidence is", RANDOM_INDEX_OF_COINCIDENCE)
     if ci > RANDOM_INDEX_OF_COINCIDENCE:
         print("Text is most likely not random")
     else:
