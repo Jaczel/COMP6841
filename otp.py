@@ -30,7 +30,10 @@ def decrypt(plain, crypt):
     """
     otp = list()
     for i, c in enumerate(plain):
-        num = ((otp_chars[crypt[i]] - otp_chars[plain[i]]) % 26)
+        num = (otp_chars[crypt[i]] - otp_chars[plain[i]]) % 26
+        # Resolve issue where a - a = 0. a - a = a
+        if num == 0:
+            num = otp_chars[crypt[i]]
         otp.append(otp_nums[num])
     return ''.join(otp)
 
